@@ -10,16 +10,6 @@ Arcturus Morningstar is as a fork of Arcturus Emulator by TheGeneral. Arcturus M
 ###### *Note to use Nitro you will need to use the following [plugin](https://git.krews.org/nitro/ms-websockets/-/releases) with Arcturus Morningstar #######
 
 
-### Branches ###
-There are two main branches in use on the Arcturus Morningstar git. Below the pros an
-
-| master | Tested on a production hotel and is stable for every day use with no known serious exploits. |
-| ------------- | ------------- |
-
-| dev | The most up-to-date, but features may not work as intended. |
-| ------------- | ------------- |
-
-
 
 
 There is no set timeframe on when new versions will be released or when the stable branch will be updated
