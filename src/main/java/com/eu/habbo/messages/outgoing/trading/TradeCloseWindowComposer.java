@@ -7,7 +7,7 @@ import com.eu.habbo.messages.outgoing.Outgoing;
 public class TradeCloseWindowComposer extends MessageComposer {
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.tradeCloseWindowComposer);
+        this.response.init(Outgoing.tradingCloseComposer);
         return this.response;
     }
 }

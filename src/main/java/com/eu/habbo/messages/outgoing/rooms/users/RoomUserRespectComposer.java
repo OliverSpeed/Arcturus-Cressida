@@ -14,7 +14,8 @@ public class RoomUserRespectComposer extends MessageComposer {
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.roomUserRespectComposer);
+        //this.response.init(Outgoing.roomUserRespectMeComposer); todo idk
+        this.response.init(0);
         this.response.appendInt(this.habbo.getHabboInfo().getId());
         this.response.appendInt(this.habbo.getHabboStats().respectPointsReceived);
         return this.response;

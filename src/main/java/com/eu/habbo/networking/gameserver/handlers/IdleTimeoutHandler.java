@@ -103,7 +103,7 @@ public class IdleTimeoutHandler extends ChannelDuplexHandler {
          */
         if(msg instanceof ClientMessage) {
             ClientMessage packet = (ClientMessage) msg;
-            if(packet.getMessageId() == Incoming.pongEvent) {
+            if(packet.getMessageId() == Incoming.pongMessageEvent) {
                 this.lastPongTime = System.nanoTime();
             }
         }

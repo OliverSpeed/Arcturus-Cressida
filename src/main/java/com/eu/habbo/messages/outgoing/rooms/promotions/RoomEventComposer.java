@@ -19,7 +19,8 @@ public class RoomEventComposer extends MessageComposer {
     @Override
     protected ServerMessage composeInternal() {
 
-        this.response.init(Outgoing.roomEventComposer);
+        //this.response.init(Outgoing.EventComposer); todo idk
+        this.response.init(0);
 
         if (this.room == null || this.roomPromotion == null) {
             this.response.appendInt(-1);

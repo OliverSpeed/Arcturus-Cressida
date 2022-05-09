@@ -1,11 +1,11 @@
 package com.eu.habbo.messages.incoming.users;
 
 import com.eu.habbo.messages.incoming.MessageHandler;
-import com.eu.habbo.messages.outgoing.users.TalentTrackLevelMessageEvent;
+import com.eu.habbo.messages.outgoing.users.TalentTrackLevelMessageComposer;
 
 public class GetTalentTrackLevelEvent extends MessageHandler {
     @Override
     public void handle() throws Exception {
-        this.client.sendResponse(new TalentTrackLevelMessageEvent(this.packet.readString()));
+        this.client.sendResponse(new TalentTrackLevelMessageComposer(this.packet.readString()));
     }
 }

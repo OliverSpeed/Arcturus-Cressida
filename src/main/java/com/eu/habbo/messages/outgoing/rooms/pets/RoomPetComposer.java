@@ -22,7 +22,7 @@ public class RoomPetComposer extends MessageComposer implements TIntObjectProced
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.usersComposer);
+        this.response.init(Outgoing.usersMessageComposer);
         this.response.appendInt(this.pets.size());
         this.pets.forEachEntry(this);
         return this.response;

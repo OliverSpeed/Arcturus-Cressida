@@ -18,7 +18,7 @@ public class WelcomeGiftChangeEmailResultComposer extends MessageComposer {
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.welcomeGiftChangeEmailResultComposer);
+        this.response.init(0);//todo idk
         this.response.appendInt(this.error);
         return this.response;
     }

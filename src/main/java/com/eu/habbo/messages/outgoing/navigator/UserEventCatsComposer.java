@@ -13,7 +13,7 @@ public class UserEventCatsComposer extends MessageComposer {
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.userEventCatsComposer);
+        this.response.init(Outgoing.userComposerCatsEvent);
 
         this.response.appendInt(UserEventCatsComposer.CATEGORIES.size());
 

@@ -17,7 +17,7 @@ public class WiredTriggerDataComposer extends MessageComposer {
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.wiredTriggerDataComposer);
+        this.response.init(Outgoing.wiredFurniTriggerComposer);
         this.trigger.serializeWiredData(this.response, this.room);
         this.trigger.needsUpdate(true);
         return this.response;

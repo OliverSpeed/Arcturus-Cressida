@@ -21,7 +21,7 @@ public class WelcomeGiftStatusComposer extends MessageComposer {
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.welcomeGiftStatusComposer);
+        this.response.init(Outgoing.newUserExperienceGiftOfferComposer); //todo not sure
         this.response.appendString(this.email);
         this.response.appendBoolean(this.unknownB1);
         this.response.appendBoolean(this.unknownB2);

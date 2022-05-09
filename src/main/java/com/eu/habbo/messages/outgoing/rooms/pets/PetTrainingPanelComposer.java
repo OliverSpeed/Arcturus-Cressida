@@ -22,7 +22,7 @@ public class PetTrainingPanelComposer extends MessageComposer {
         List<PetCommand> enabled = new ArrayList<>();
         Collections.sort(this.pet.getPetData().getPetCommands());
 
-        this.response.init(Outgoing.petTrainingPanelComposer);
+        this.response.init(Outgoing.petInventoryComposer); // todo not sure
         this.response.appendInt(this.pet.getId());
         this.response.appendInt(this.pet.getPetData().getPetCommands().size());
 

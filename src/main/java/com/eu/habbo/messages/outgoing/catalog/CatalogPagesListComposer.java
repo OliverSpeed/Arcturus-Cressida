@@ -30,7 +30,7 @@ public class CatalogPagesListComposer extends MessageComposer {
         try {
             List<CatalogPage> pages = Emulator.getGameEnvironment().getCatalogManager().getCatalogPages(-1, this.habbo);
 
-            this.response.init(Outgoing.catalogPagesListComposer);
+            this.response.init(Outgoing.catalogIndexMessageComposer); //todo not sure
 
             this.response.appendBoolean(true);
             this.response.appendInt(0);

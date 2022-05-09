@@ -26,7 +26,7 @@ public class TradingOpenFailedComposer extends MessageComposer {
     }
 
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.tradingOpenFailedComposer);
+        this.response.init(Outgoing.tradeOpenFailedComposer);
         this.response.appendInt(this.code);
         this.response.appendString(this.username);
         return this.response;

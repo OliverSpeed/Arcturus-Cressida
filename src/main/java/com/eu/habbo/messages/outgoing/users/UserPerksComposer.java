@@ -16,7 +16,7 @@ public class UserPerksComposer extends MessageComposer {
 
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.perkAllowancesComposer);
+        this.response.init(Outgoing.perkAllowancesMessageComposer);
         this.response.appendInt(15);
 
         this.response.appendString("USE_GUIDE_TOOL");

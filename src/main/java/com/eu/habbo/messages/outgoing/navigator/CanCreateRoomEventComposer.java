@@ -7,7 +7,7 @@ import com.eu.habbo.messages.outgoing.Outgoing;
 public class CanCreateRoomEventComposer extends MessageComposer {
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.canCreateRoomEventComposer);
+        this.response.init(Outgoing.canCreateRoomComposer);
         this.response.appendBoolean(true);
         this.response.appendInt(0);
         return this.response;
