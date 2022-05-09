@@ -5,24 +5,9 @@ Arcturus Morningstar is as a fork of Arcturus Emulator by TheGeneral. Arcturus M
 
 | Flash | Community Clients |
 | ------------- | ------------- |
-| [PRODUCTION-201611291003-338511768](https://git.krews.org/morningstar/apollyon/uploads/dc669a26613bf2356e48eb653734ab29/patched-habbo.swf) | [Nitro (Recommended)*](https://git.krews.org/nitro) |
+| [WIN63-202111081545-75921380](https://github.com/ntuative/habbo-2021/)
  
 ###### *Note to use Nitro you will need to use the following [plugin](https://git.krews.org/nitro/ms-websockets/-/releases) with Arcturus Morningstar #######
-
-
-
-
-
-[![image](https://img.shields.io/discord/557240155040251905?style=for-the-badge&logo=discord&color=7289DA&label=KREWS&logoColor=fff)](https://discord.gg/BzfFsTp)
-
-## Download ##
-[![image](https://img.shields.io/badge/STABLE%20RELEASES-3.0.0-success.svg?style=for-the-badge&logo=appveyor)](https://git.krews.org/morningstar/Arcturus-Community/-/releases)
-
-[![image](https://img.shields.io/badge/DEVELOPER%20PREVIEW-4.0.0-red.svg?style=for-the-badge&logo=appveyor)](https://git.krews.org/morningstar/Arcturus-Community/-/jobs) *
-
-[![image](https://img.shields.io/badge/RECOMMENDED%20PLUGINS-blue.svg?style=for-the-badge&logo=)](https://git.krews.org/official-plugins) 
-
-###### * Note to use these builds you will need to run any database updates from [here](https://git.krews.org/morningstar/Arcturus-Community/-/tree/dev/sqlupdates) #######
 
 
 ### Branches ###
@@ -67,7 +52,8 @@ If we ever are to make paid features or plugins, we will not prevent or discoura
 
 
 
-
+## Official MS ##
+This is not a project specifically related to Morningstar. This is a private fork for now. If you wish to look at the original fork, visit https://git.krews.org/morningstar/Arcturus-Community.
 
 
 ### Credits ###
