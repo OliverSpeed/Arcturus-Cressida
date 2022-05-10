@@ -37,7 +37,7 @@ public enum CatalogPageLayouts {
     petcustomization,
     root,
     vip_buy,
-    frontpage_featured,
+    frontpage4,
     builders_club_addons,
     builders_club_frontpage,
     builders_club_loyalty,

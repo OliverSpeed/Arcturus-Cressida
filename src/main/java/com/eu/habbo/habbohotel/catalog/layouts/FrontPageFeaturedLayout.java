@@ -15,7 +15,7 @@ public class FrontPageFeaturedLayout extends CatalogPage {
 
     @Override
     public void serialize(ServerMessage message) {
-        message.appendString("frontpage_featured");
+        message.appendString("frontpage4");
         String[] teaserImages = super.getTeaserImage().split(";");
         String[] specialImages = super.getSpecialImage().split(";");
 

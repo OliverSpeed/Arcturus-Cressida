@@ -209,7 +209,7 @@ public class CatalogManager {
                 case vip_buy:
                     pageDefinitions.put(layout.name().toLowerCase(), VipBuyLayout.class);
                     break;
-                case frontpage_featured:
+                case frontpage4:
                     pageDefinitions.put(layout.name().toLowerCase(), FrontPageFeaturedLayout.class);
                     break;
                 case builders_club_addons:
