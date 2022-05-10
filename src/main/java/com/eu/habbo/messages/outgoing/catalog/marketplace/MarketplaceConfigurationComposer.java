@@ -16,6 +16,9 @@ public class MarketplaceConfigurationComposer extends MessageComposer {
         this.response.appendInt(1000000); //Max price
         this.response.appendInt(48); //Hours in marketplace
         this.response.appendInt(7); //Days to display
+        this.response.appendInt(0); //Selling fee percentage | unknown atm 2 by default
+        this.response.appendInt(100000); // Revenue limit
+        this.response.appendInt(40000); // Half Tax Limit
         return this.response;
     }
 }
