@@ -636,6 +636,7 @@ public class PacketManager {
     }
 
     void registerGameCenter() throws Exception {
+        this.registerHandler(Incoming.game2CheckGameDirectoryStatusMessageEvent, Game2CheckGameDirectoryStatusEvent.class);
         //this.registerHandler(Incoming.getGameListEvent, GetGameListEvent.class);
         //this.registerHandler(Incoming.getGameStatusEvent, GetGameStatusEvent.class);
         //this.registerHandler(Incoming.joinQueueEvent, JoinQueueEvent.class);

@@ -157,8 +157,8 @@ public class Incoming {
   public final static int saveRoomSettingsMessageEvent = 3595;
   public final static int updateRoomCategoryAndTradeSettingsEvent = 1950;
   public final static int updateRoomFilterMessageEvent = 248;
-  public final static int unknownEvent844 = 844;
-  public final static int unknownEvent147 = 147;
+  public final static int game2CheckGameDirectoryStatusMessageEvent = 844;
+  public final static int game2GetAccountGameStatusMessageEvent = 147;
   public final static int game2LeaveGameMessageEvent = 1589;
   public final static int game2QuickJoinGameMessageEvent = 2125;
   public final static int game2StartSnowWarMessageEvent = 3539;
