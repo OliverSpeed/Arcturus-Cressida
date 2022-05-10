@@ -10,17 +10,16 @@ public class GetGuestRoomEvent extends MessageHandler {
     public void handle() throws Exception {
         Room room = Emulator.getGameEnvironment().getRoomManager().loadRoom(this.packet.readInt());
 
-        int something = this.packet.readInt();
-        int something2 = this.packet.readInt();
+        int roomForward = this.packet.readInt();
+        int enterRoom = this.packet.readInt();
         if (room != null) {
-            boolean unknown = true;
 
-            if (something == 0 && something2 == 1) {
-                unknown = false;
+            if (enterRoom == 1 && roomForward == 0) {
+                this.client.sendResponse(new GetGuestRoomResultComposer(room, this.client.getHabbo(), true, false));
+            } else {
+                 this.client.sendResponse(new GetGuestRoomResultComposer(room, this.client.getHabbo(), false, false));
+
             }
-
-            //this.client.getHabbo().getHabboInfo().getCurrentRoom() != room
-            this.client.sendResponse(new GetGuestRoomResultComposer(room, this.client.getHabbo(), true, unknown));
-        }
+           }
     }
 }

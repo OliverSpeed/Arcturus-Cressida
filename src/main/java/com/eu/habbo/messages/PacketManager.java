@@ -374,7 +374,7 @@ public class PacketManager {
     void registerRooms() throws Exception {
         this.registerHandler(Incoming.openFlatConnectionMessageEvent, OpenFlatConnectionEvent.class);
         this.registerHandler(Incoming.getFurnitureAliasesMessageEvent, GetRoomEntryDataEvent.class);// should this be seperate event classes?
-        //this.registerHandler(Incoming.getRoomEntryDataMessageEvent, GetRoomEntryDataEvent.class); should this be seperate event classes? todo it gone?
+        this.registerHandler(Incoming.getHeightMapMessageEvent, GetRoomEntryDataEvent.class); //should this be seperate event classes?
         this.registerHandler(Incoming.rateFlatMessageEvent, RateFlatEvent.class);
         this.registerHandler(Incoming.getGuestRoomMessageEvent, GetGuestRoomEvent.class);
         this.registerHandler(Incoming.saveRoomSettingsMessageEvent, SaveRoomSettingsEvent.class);

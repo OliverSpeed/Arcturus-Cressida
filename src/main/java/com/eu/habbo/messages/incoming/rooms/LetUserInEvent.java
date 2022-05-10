@@ -20,7 +20,7 @@ public class LetUserInEvent extends MessageHandler {
                 this.client.getHabbo().getHabboInfo().getCurrentRoom().removeFromQueue(habbo);
 
                 if (accepted) {
-                    habbo.getClient().sendResponse(new FlatAccessibleMessageComposer(""));
+                    habbo.getClient().sendResponse(new FlatAccessibleMessageComposer(0, ""));
                     Emulator.getGameEnvironment().getRoomManager().enterRoom(habbo, this.client.getHabbo().getHabboInfo().getCurrentRoom().getId(), "", true);
                 } else {
                     habbo.getClient().sendResponse(new FlatAccessDeniedMessageComposer(""));

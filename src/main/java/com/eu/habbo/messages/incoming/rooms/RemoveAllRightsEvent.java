@@ -27,7 +27,7 @@ public class RemoveAllRightsEvent extends MessageHandler {
                     if (habbo != null) {
                         room.sendComposer(new NoSuchFlatComposer(room, value).compose());
                         habbo.getRoomUnit().removeStatus(RoomUnitStatus.FLAT_CONTROL);
-                        habbo.getClient().sendResponse(new YouAreControllerMessageComposer(RoomRightLevels.NONE));
+                        habbo.getClient().sendResponse(new YouAreControllerMessageComposer(room.getId(), RoomRightLevels.NONE));
                     }
 
                     return true;

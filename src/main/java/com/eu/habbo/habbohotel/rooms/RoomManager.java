@@ -587,7 +587,7 @@ public class RoomManager {
         }
 
         habbo.getHabboInfo().setRoomQueueId(0);
-        habbo.getClient().sendResponse(new FlatAccessibleMessageComposer(""));
+        habbo.getClient().sendResponse(new FlatAccessibleMessageComposer(0, ""));
 
         if (habbo.getRoomUnit() != null) {
             RoomUnit existingRoom = habbo.getRoomUnit();
@@ -633,7 +633,7 @@ public class RoomManager {
         habbo.getRoomUnit().clearStatus();
         habbo.getRoomUnit().cmdTeleport = false;
 
-        habbo.getClient().sendResponse(new OpenConnectionMessageComposer());
+        habbo.getClient().sendResponse(new OpenConnectionMessageComposer(room.getId()));
 
         habbo.getRoomUnit().setInRoom(true);
         if (habbo.getHabboInfo().getCurrentRoom() != room && habbo.getHabboInfo().getCurrentRoom() != null) {
@@ -783,7 +783,7 @@ public class RoomManager {
 
         habbo.getClient().sendResponse(new RoomVisualizationSettingsComposer(room));
 
-        habbo.getClient().sendResponse(new GetGuestRoomResultComposer(room, habbo.getClient().getHabbo(), false, true));
+        //habbo.getClient().sendResponse(new GetGuestRoomResultComposer(room, habbo.getClient().getHabbo(), false, true)); todo check it
 
         habbo.getClient().sendResponse(new ItemsComposer(room));
         {
