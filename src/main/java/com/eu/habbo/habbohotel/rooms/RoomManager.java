@@ -783,8 +783,6 @@ public class RoomManager {
 
         habbo.getClient().sendResponse(new RoomVisualizationSettingsComposer(room));
 
-        //habbo.getClient().sendResponse(new GetGuestRoomResultComposer(room, habbo.getClient().getHabbo(), false, true)); todo check it
-
         habbo.getClient().sendResponse(new ItemsComposer(room));
         {
             final THashSet<HabboItem> floorItems = new THashSet<>();
@@ -798,20 +796,17 @@ public class RoomManager {
                 }
             }
 
-            allFloorItems.forEach(new TObjectProcedure<HabboItem>() {
-                @Override
-                public boolean execute(HabboItem object) {
-                    if (room.isHideWired() && object instanceof InteractionWired)
-                        return true;
-
-                    floorItems.add(object);
-                    if (floorItems.size() == 250) {
-                        habbo.getClient().sendResponse(new ObjectsMessageComposer(room.getFurniOwnerNames(), floorItems));
-                        floorItems.clear();
-                    }
-
+            allFloorItems.forEach(object -> {
+                if (room.isHideWired() && object instanceof InteractionWired)
                     return true;
+
+                floorItems.add(object);
+                if (floorItems.size() == 250) {
+                    habbo.getClient().sendResponse(new ObjectsMessageComposer(room.getFurniOwnerNames(), floorItems));
+                    floorItems.clear();
                 }
+
+                return true;
             });
 
             habbo.getClient().sendResponse(new ObjectsMessageComposer(room.getFurniOwnerNames(), floorItems));
