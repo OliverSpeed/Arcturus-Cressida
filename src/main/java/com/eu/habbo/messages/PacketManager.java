@@ -12,6 +12,7 @@ import com.eu.habbo.messages.incoming.camera.*;
 import com.eu.habbo.messages.incoming.campaign.OpenCampaignCalendarDoorAsStaffEvent;
 import com.eu.habbo.messages.incoming.campaign.OpenCampaignCalendarDoorEvent;
 import com.eu.habbo.messages.incoming.catalog.*;
+import com.eu.habbo.messages.incoming.hotlooks.*;
 import com.eu.habbo.messages.incoming.catalog.marketplace.*;
 import com.eu.habbo.messages.incoming.catalog.recycler.PresentOpenEvent;
 import com.eu.habbo.messages.incoming.catalog.recycler.RecycleItemsEvent;
@@ -104,6 +105,7 @@ public class PacketManager {
         this.registerInventory();
         this.registerRooms();
         this.registerPolls();
+        this.registerHotlooks();
         this.registerUnknown();
         this.registerModTool();
         this.registerTrading();
@@ -225,6 +227,10 @@ public class PacketManager {
     private void registerAmbassadors() throws Exception {
         this.registerHandler(Incoming.ambassadorAlertMessageEvent, AmbassadorAlertEvent.class);
         this.registerHandler(Incoming.followFriendMessageEvent, FollowFriendEvent.class);
+    }
+
+    private void registerHotlooks() throws Exception {
+        this.registerHandler(Incoming.getHotLooksMessageEvent, getHotLooksMessageEvent.class);
     }
 
     private void registerCatalog() throws Exception {
