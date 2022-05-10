@@ -8,36 +8,27 @@ import com.eu.habbo.messages.outgoing.Outgoing;
 import gnu.trove.set.hash.THashSet;
 
 public class BadgesComposer extends MessageComposer {
-    private final Habbo habbo;
-
-    public BadgesComposer(Habbo habbo) {
-        this.habbo = habbo;
+    private final THashSet<HabboBadge> badges;
+    private final int fragmentNumber;
+    private final int totalFragments;
+    public BadgesComposer(int fragmentNumber, int totalFragments, THashSet<HabboBadge> badges) {
+        this.fragmentNumber = fragmentNumber;
+        this.totalFragments = totalFragments;
+        this.badges = badges;
     }
 
     @Override
     protected ServerMessage composeInternal() {
-        if (this.habbo == null)
-            return null;
-
-        THashSet<HabboBadge> equippedBadges = new THashSet<>();
 
         this.response.init(Outgoing.badgesComposer);
-
-        this.response.appendInt(this.habbo.getInventory().getBadgesComponent().getBadges().size());
-        for (HabboBadge badge : this.habbo.getInventory().getBadgesComponent().getBadges()) {
+        this.response.appendInt(this.totalFragments);
+        this.response.appendInt(this.fragmentNumber - 1);
+        this.response.appendInt(this.badges.size());
+        for (HabboBadge badge : this.badges) {
             this.response.appendInt(badge.getId());
             this.response.appendString(badge.getCode());
-
-            if (badge.getSlot() > 0)
-                equippedBadges.add(badge);
         }
 
-        this.response.appendInt(equippedBadges.size());
-
-        for (HabboBadge badge : equippedBadges) {
-            this.response.appendInt(badge.getSlot());
-            this.response.appendString(badge.getCode());
-        }
 
         return this.response;
     }

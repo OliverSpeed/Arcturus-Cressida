@@ -40,7 +40,7 @@ public class TakeBadgeCommand extends Command {
                     return true;
                 }
 
-                habbo.getClient().sendResponse(new BadgesComposer(habbo));
+                habbo.getClient().sendResponse(new BadgesComposer(0, 1, habbo.getInventory().getBadgesComponent().getBadges()));
                 if (habbo.getHabboInfo().getCurrentRoom() != null) {
                     habbo.getHabboInfo().getCurrentRoom().sendComposer(new UserBadgesComposer(habbo.getInventory().getBadgesComponent().getWearingBadges(), habbo.getHabboInfo().getId()).compose());
                 }

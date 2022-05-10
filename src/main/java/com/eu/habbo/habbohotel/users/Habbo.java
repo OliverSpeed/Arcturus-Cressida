@@ -404,7 +404,7 @@ public class Habbo implements Runnable {
         if (badge != null) {
             this.habboInventory.getBadgesComponent().removeBadge(badge);
             BadgesComponent.deleteBadge(this.getHabboInfo().getId(), badge.getCode());
-            this.client.sendResponse(new BadgesComposer(this));
+            this.client.sendResponse(new BadgesComposer(0, 1, this.getInventory().getBadgesComponent().getBadges()));
         }
     }
 
