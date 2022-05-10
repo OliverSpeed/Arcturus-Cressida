@@ -20,7 +20,7 @@ public class MoveAvatarEvent extends MessageHandler {
 
     @Override
     public int getRatelimit() {
-        return 500;
+        return 250;
     }
 
     @Override
