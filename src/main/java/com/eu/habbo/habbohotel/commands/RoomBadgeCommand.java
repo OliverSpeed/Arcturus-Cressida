@@ -30,7 +30,7 @@ public class RoomBadgeCommand extends Command {
             if (!badge.isEmpty()) {
                 THashMap<String, String> keys = new THashMap<>();
                 keys.put("display", "BUBBLE");
-                keys.put("image", "${image.library.url}album1584/" + badge + ".gif");
+                keys.put("image", "${image.library.url}album1584/" + badge + ".png");
                 keys.put("message", Emulator.getTexts().getValue("commands.generic.cmd_badge.received"));
                 ServerMessage message = new NotificationDialogMessageComposer(BubbleAlertKeys.RECEIVED_BADGE.key, keys).compose();
 
