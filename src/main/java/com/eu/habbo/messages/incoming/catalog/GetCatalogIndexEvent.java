@@ -2,7 +2,7 @@ package com.eu.habbo.messages.incoming.catalog;
 
 import com.eu.habbo.messages.incoming.MessageHandler;
 import com.eu.habbo.messages.outgoing.catalog.BuildersClubFurniCountMessageComposer;
-import com.eu.habbo.messages.outgoing.catalog.CatalogPagesListComposer;
+import com.eu.habbo.messages.outgoing.catalog.CatalogIndexMessageComposer;
 
 public class GetCatalogIndexEvent extends MessageHandler {
     @Override
@@ -11,10 +11,10 @@ public class GetCatalogIndexEvent extends MessageHandler {
         String MODE = this.packet.readString();
         if (MODE.equalsIgnoreCase("normal")) {
             this.client.sendResponse(new BuildersClubFurniCountMessageComposer(0));
-            this.client.sendResponse(new CatalogPagesListComposer(this.client.getHabbo(), MODE));
+            this.client.sendResponse(new CatalogIndexMessageComposer(this.client.getHabbo(), MODE));
         } else {
             this.client.sendResponse(new BuildersClubFurniCountMessageComposer(1));
-            this.client.sendResponse(new CatalogPagesListComposer(this.client.getHabbo(), MODE));
+            this.client.sendResponse(new CatalogIndexMessageComposer(this.client.getHabbo(), MODE));
         }
 
     }

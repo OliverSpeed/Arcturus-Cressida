@@ -12,14 +12,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class CatalogPagesListComposer extends MessageComposer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CatalogPagesListComposer.class);
+public class CatalogIndexMessageComposer extends MessageComposer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CatalogIndexMessageComposer.class);
 
     private final Habbo habbo;
     private final String mode;
     private final boolean hasPermission;
 
-    public CatalogPagesListComposer(Habbo habbo, String mode) {
+    public CatalogIndexMessageComposer(Habbo habbo, String mode) {
         this.habbo = habbo;
         this.mode = mode;
         this.hasPermission = this.habbo.hasPermission(Permission.ACC_CATALOG_IDS);
@@ -30,14 +30,15 @@ public class CatalogPagesListComposer extends MessageComposer {
         try {
             List<CatalogPage> pages = Emulator.getGameEnvironment().getCatalogManager().getCatalogPages(-1, this.habbo);
 
-            this.response.init(Outgoing.catalogIndexMessageComposer); //todo not sure
+            this.response.init(Outgoing.catalogIndexMessageComposer);
 
-            this.response.appendBoolean(true);
-            this.response.appendInt(0);
-            this.response.appendInt(-1);
-            this.response.appendString("root");
-            this.response.appendString("");
-            this.response.appendInt(0);
+                this.response.appendBoolean(true);
+                this.response.appendInt(0);
+                this.response.appendInt(-1);
+                this.response.appendString("root");
+                this.response.appendString("");
+                this.response.appendInt(0);
+
             this.response.appendInt(pages.size());
 
             for (CatalogPage category : pages) {
