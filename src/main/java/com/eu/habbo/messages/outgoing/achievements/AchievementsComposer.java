@@ -37,13 +37,14 @@ public class AchievementsComposer extends MessageComposer {
                 nextLevel = achievement.getNextLevel(currentLevel != null ? currentLevel.level : 0);
 
                 this.response.appendInt(achievement.id); //ID
-                this.response.appendInt(nextLevel != null ? nextLevel.level : currentLevel != null ? currentLevel.level : 0); //
-                this.response.appendString("ACH_" + achievement.name + (nextLevel != null ? nextLevel.level : currentLevel != null ? currentLevel.level : 0)); //Target badge code
+                int i = nextLevel != null ? nextLevel.level : currentLevel != null ? currentLevel.level : 0;
+                this.response.appendInt(i); //
+                this.response.appendString("ACH_" + achievement.name + i); //Target badge code
                 this.response.appendInt(currentLevel != null ? currentLevel.progress : 0); //Last level progress needed
                 this.response.appendInt(nextLevel != null ? nextLevel.progress : -1); //Progress needed
                 this.response.appendInt(nextLevel != null ? nextLevel.rewardAmount : -1); //Reward amount
                 this.response.appendInt(nextLevel != null ? nextLevel.rewardType : -1); //Reward currency ID
-                this.response.appendInt(achievementProgress <= 0 ? 0 : achievementProgress); //Current progress
+                this.response.appendInt(Math.max(achievementProgress, 0)); //Current progress
                 this.response.appendBoolean(AchievementManager.hasAchieved(this.habbo, achievement)); //Achieved? (Current Progress == MaxLevel.Progress)
                 this.response.appendString(achievement.category.toString().toLowerCase()); //Category
                 this.response.appendString(""); //Empty, completly unused in client code

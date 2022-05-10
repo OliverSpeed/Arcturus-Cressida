@@ -6,6 +6,6 @@ import com.eu.habbo.messages.outgoing.achievements.AchievementsComposer;
 public class GetAchievementsEvent extends MessageHandler {
     @Override
     public void handle() throws Exception {
-        //todo this.client.sendResponse(new AchievementsComposer(this.client.getHabbo()));
+        this.client.sendResponse(new AchievementsComposer(this.client.getHabbo()));
     }
 }
