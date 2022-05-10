@@ -211,9 +211,6 @@ public class SSOTicketEvent extends MessageHandler {
                 messages.add(new BuildersClubSubscriptionStatusMessageComposer().compose());
                 messages.add(new CfhTopicsInitComposer().compose());
                 messages.add(new FavouriteChangedComposer(this.client.getHabbo()).compose());
-                messages.add(new GameListMessageComposer().compose());
-                messages.add(new Game2AccountGameStatusMessageComposer(3, 100).compose());
-                messages.add(new Game2AccountGameStatusMessageComposer(0, 100).compose());
 
                 messages.add(new ScrSendUserInfoComposer(this.client.getHabbo(), SubscriptionHabboClub.HABBO_CLUB, ScrSendUserInfoComposer.RESPONSE_TYPE_LOGIN).compose());
 
