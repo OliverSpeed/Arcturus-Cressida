@@ -8,11 +8,16 @@ import com.eu.habbo.messages.ServerMessage;
 import com.eu.habbo.messages.outgoing.MessageComposer;
 import com.eu.habbo.messages.outgoing.Outgoing;
 
+import java.util.HashSet;
+import java.util.stream.Collectors;
+
 public class TradingItemListComposer extends MessageComposer {
     private final RoomTrade roomTrade;
+    private final int userId;
 
-    public TradingItemListComposer(RoomTrade roomTrade) {
+    public TradingItemListComposer(RoomTrade roomTrade, int userId) {
         this.roomTrade = roomTrade;
+        this.userId = userId;
     }
 
     @Override
@@ -20,8 +25,8 @@ public class TradingItemListComposer extends MessageComposer {
         this.response.init(Outgoing.tradingItemListComposer);
         for (RoomTradeUser roomTradeUser : this.roomTrade.getRoomTradeUsers()) {
             this.response.appendInt(roomTradeUser.getUserId());
-
-            this.response.appendInt(roomTradeUser.getItems().size());
+            HashSet<HabboItem> items = roomTradeUser.getItems().stream().filter(item -> roomTradeUser.getUserId() == userId || (!item.getBaseItem().getName().startsWith("CF_") && !item.getBaseItem().getName().startsWith("CFC_"))).collect(Collectors.toCollection(HashSet::new));
+            this.response.appendInt(items.size());
             for (HabboItem item : roomTradeUser.getItems()) {
                 this.response.appendInt(item.getId());
                 this.response.appendString(item.getBaseItem().getType().code);

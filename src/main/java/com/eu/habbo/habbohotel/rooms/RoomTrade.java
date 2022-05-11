@@ -270,7 +270,9 @@ public class RoomTrade {
     }
 
     protected void updateWindow() {
-        this.sendMessageToUsers(new TradingItemListComposer(this));
+        for (RoomTradeUser roomTradeUser : this.users) {
+            roomTradeUser.getHabbo().getClient().sendResponse(new TradingItemListComposer(this, roomTradeUser.getUserId()));
+        }
     }
 
     private void returnItems() {
