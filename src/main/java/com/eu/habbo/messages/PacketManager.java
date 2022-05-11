@@ -308,6 +308,7 @@ public class PacketManager {
         this.registerHandler(Incoming.getExtendedProfileMessageEvent, GetExtendedProfileEvent.class);
         this.registerHandler(Incoming.getRelationshipStatusInfoMessageEvent, GetRelationshipStatusInfoEvent.class);
         this.registerHandler(Incoming.getWardrobeMessageEvent, GetWardrobeEvent.class);
+        this.registerHandler(Incoming.getHotLooksMessageEvent, GetHotLooksMessageEvent.class);
         this.registerHandler(Incoming.saveWardrobeOutfitMessageEvent, SaveWardrobeOutfitEvent.class);
         this.registerHandler(Incoming.changeMottoMessageEvent, ChangeMottoEvent.class);
         this.registerHandler(Incoming.updateFigureDataMessageEvent, UpdateFigureDataEvent.class);

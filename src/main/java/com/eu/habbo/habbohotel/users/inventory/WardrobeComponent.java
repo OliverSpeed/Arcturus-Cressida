@@ -82,7 +82,7 @@ public class WardrobeComponent {
         this.looks.clear();
     }
 
-    public class WardrobeItem implements Runnable {
+    public static class WardrobeItem implements Runnable {
         private int slotId;
         private HabboGender gender;
         private Habbo habbo;
@@ -90,7 +90,7 @@ public class WardrobeComponent {
         private boolean needsInsert = false;
         private boolean needsUpdate = false;
 
-        private WardrobeItem(ResultSet set, Habbo habbo) throws SQLException {
+        public WardrobeItem(ResultSet set, Habbo habbo) throws SQLException {
             this.gender = HabboGender.valueOf(set.getString("gender"));
             this.look = set.getString("look");
             this.slotId = set.getInt("slot_id");
@@ -102,6 +102,11 @@ public class WardrobeComponent {
             this.look = look;
             this.slotId = slotId;
             this.habbo = habbo;
+        }
+
+        public WardrobeItem(ResultSet set) throws SQLException {
+            this.look = set.getString("look");
+            this.gender = HabboGender.valueOf(set.getString("gender"));
         }
 
         public HabboGender getGender() {

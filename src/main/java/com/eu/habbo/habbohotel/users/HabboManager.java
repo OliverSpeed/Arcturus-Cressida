@@ -4,6 +4,7 @@ import com.eu.habbo.Emulator;
 import com.eu.habbo.habbohotel.modtool.ModToolBan;
 import com.eu.habbo.habbohotel.permissions.Permission;
 import com.eu.habbo.habbohotel.permissions.Rank;
+import com.eu.habbo.habbohotel.users.inventory.WardrobeComponent;
 import com.eu.habbo.messages.ServerMessage;
 import com.eu.habbo.messages.outgoing.catalog.*;
 import com.eu.habbo.messages.outgoing.catalog.marketplace.MarketplaceConfigurationComposer;
@@ -35,13 +36,34 @@ public class HabboManager {
     public static boolean NAMECHANGE_ENABLED = false;
 
     private final ConcurrentHashMap<Integer, Habbo> onlineHabbos;
-
+    private ArrayList<WardrobeComponent.WardrobeItem> hotlooks = new ArrayList<>();
     public HabboManager() {
         long millis = System.currentTimeMillis();
 
         this.onlineHabbos = new ConcurrentHashMap<>();
-
+        this.loadHotLooks();
         LOGGER.info("Habbo Manager -> Loaded! (" + (System.currentTimeMillis() - millis) + " MS)");
+    }
+
+    public void loadHotLooks(){
+        this.hotlooks.clear();
+        try (Connection connection = Emulator.getDatabase().getDataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotlooks")) {
+            try (ResultSet set = statement.executeQuery()) {
+                if (set.next()) {
+                    this.hotlooks.add(new WardrobeComponent.WardrobeItem(set));
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.error("Caught SQL exception", e);
+        }
+    }
+
+    public ArrayList<WardrobeComponent.WardrobeItem> getHotlooks() {
+        return hotlooks;
+    }
+
+    public void setHotlooks(ArrayList<WardrobeComponent.WardrobeItem> hotlooks) {
+        this.hotlooks = hotlooks;
     }
 
     public static HabboInfo getOfflineHabboInfo(int id) {
