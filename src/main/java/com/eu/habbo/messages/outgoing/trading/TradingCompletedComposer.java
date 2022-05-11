@@ -4,10 +4,10 @@ import com.eu.habbo.messages.ServerMessage;
 import com.eu.habbo.messages.outgoing.MessageComposer;
 import com.eu.habbo.messages.outgoing.Outgoing;
 
-public class TradeCloseWindowComposer extends MessageComposer {
+public class TradingCompletedComposer extends MessageComposer {
     @Override
     protected ServerMessage composeInternal() {
-        this.response.init(Outgoing.tradingCloseComposer);
+        this.response.init(Outgoing.tradingCompletedComposer);
         return this.response;
     }
 }

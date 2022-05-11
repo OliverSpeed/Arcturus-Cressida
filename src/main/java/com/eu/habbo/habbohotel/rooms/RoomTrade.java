@@ -281,7 +281,7 @@ public class RoomTrade {
 
     private void closeWindow() {
         this.removeStatusses();
-        this.sendMessageToUsers(new TradeCloseWindowComposer());
+        this.sendMessageToUsers(new TradingCompletedComposer());
     }
 
     public void stopTrade(Habbo habbo) {
