@@ -10,9 +10,10 @@ public class GetCatalogPageEvent extends MessageHandler {
 
     @Override
     public void handle() throws Exception {
-        int catalogPageId = this.packet.readInt();
-        int offerId = this.packet.readInt();
-        String mode = this.packet.readString();
+        int catalogPageId = this.packet.readInt(); // works
+        int offerId = this.packet.readInt(); // this is incorrect name tbh
+        String mode = this.packet.readString(); //normal || builders_club
+
 
         CatalogPage page = Emulator.getGameEnvironment().getCatalogManager().catalogPages.get(catalogPageId);
 

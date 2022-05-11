@@ -41,7 +41,11 @@ public class CatalogFeaturedPage implements ISerialize {
                 message.appendString(this.productName);
                 break;
         }
-        message.appendInt(Emulator.getIntUnixTimestamp() - this.expireTimestamp);
+        message.appendInt(-1); // Emulator.getIntUnixTimestamp() - this.expireTimestamp);
+    }
+
+    public int getSlotId() {
+        return this.slotId;
     }
 
     public enum Type {

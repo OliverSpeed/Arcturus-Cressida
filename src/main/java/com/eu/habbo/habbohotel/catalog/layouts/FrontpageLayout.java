@@ -1,5 +1,7 @@
 package com.eu.habbo.habbohotel.catalog.layouts;
 
+import com.eu.habbo.Emulator;
+import com.eu.habbo.habbohotel.catalog.CatalogFeaturedPage;
 import com.eu.habbo.habbohotel.catalog.CatalogPage;
 import com.eu.habbo.messages.ServerMessage;
 
@@ -22,5 +24,13 @@ public class FrontpageLayout extends CatalogPage {
         message.appendString(super.getTextOne());
         message.appendString(super.getTextTwo());
         message.appendString(super.getTextTeaser());
+    }
+
+    public void serializeExtra(ServerMessage message) {
+        message.appendInt(Emulator.getGameEnvironment().getCatalogManager().getCatalogFeaturedPages().size());
+
+        for (CatalogFeaturedPage page : Emulator.getGameEnvironment().getCatalogManager().getCatalogFeaturedPages().valueCollection()) {
+            page.serialize(message);
+        }
     }
 }

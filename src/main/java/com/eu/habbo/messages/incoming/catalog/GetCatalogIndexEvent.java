@@ -9,7 +9,7 @@ public class GetCatalogIndexEvent extends MessageHandler {
     public void handle() throws Exception {
 
         String MODE = this.packet.readString();
-        if (MODE.equalsIgnoreCase("normal")) {
+        if (MODE.equalsIgnoreCase("NORMAL")) {
             this.client.sendResponse(new BuildersClubFurniCountMessageComposer(0));
             this.client.sendResponse(new CatalogIndexMessageComposer(this.client.getHabbo(), MODE));
         } else {
