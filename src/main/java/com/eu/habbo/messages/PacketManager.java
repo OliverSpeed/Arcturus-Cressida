@@ -105,7 +105,6 @@ public class PacketManager {
         this.registerInventory();
         this.registerRooms();
         this.registerPolls();
-        this.registerHotlooks();
         this.registerUnknown();
         this.registerModTool();
         this.registerTrading();
@@ -227,10 +226,6 @@ public class PacketManager {
     private void registerAmbassadors() throws Exception {
         this.registerHandler(Incoming.ambassadorAlertMessageEvent, AmbassadorAlertEvent.class);
         this.registerHandler(Incoming.followFriendMessageEvent, FollowFriendEvent.class);
-    }
-
-    private void registerHotlooks() throws Exception {
-        this.registerHandler(Incoming.getHotLooksMessageEvent, getHotLooksMessageEvent.class);
     }
 
     private void registerCatalog() throws Exception {
