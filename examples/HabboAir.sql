@@ -4,6 +4,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 ALTER TABLE `users_settings`
   ADD `star_gems` INT(11) NOT NULL DEFAULT '0' AFTER `guild_id`;
 
+INSERT INTO `emulator_texts` (`key`, `value`) VALUES ('stargem.invalid.target', 'Your target was invalid! Sorry :(');
+INSERT INTO `emulator_texts` (`key`, `value`) VALUES ('stargem.received.from', 'You received a gem from %username%!');
+INSERT INTO `emulator_texts` (`key`, `value`) VALUES ('stargem.not.enough', 'Sorry, you don\'t have enough Duckets to give Stargems!');
+
+INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.amount', '1');
+INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.currency.type', '0');
+INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.give.currency', '0');
+
 -- ----------------------------
 -- Table structure for hotlooks
 -- ----------------------------
