@@ -98,6 +98,7 @@ public class HabboStats implements Runnable {
     public int maxRooms;
     public int lastHCPayday;
     public int hcGiftsClaimed;
+    public int starGems;
     public int hcMessageLastModified = Emulator.getIntUnixTimestamp();
     public THashSet<Subscription> subscriptions;
 
@@ -154,6 +155,7 @@ public class HabboStats implements Runnable {
         this.maxRooms = set.getInt("max_rooms");
         this.lastHCPayday = set.getInt("last_hc_payday");
         this.hcGiftsClaimed = set.getInt("hc_gifts_claimed");
+        this.starGems = set.getInt("star_gems");
 
         this.nuxReward = this.nux;
 
@@ -329,7 +331,7 @@ public class HabboStats implements Runnable {
         int onlineTime = Emulator.getIntUnixTimestamp() - onlineTimeLast;
 
         try (Connection connection = Emulator.getDatabase().getDataSource().getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement("UPDATE users_settings SET achievement_score = ?, respects_received = ?, respects_given = ?, daily_respect_points = ?, block_following = ?, block_friendrequests = ?, online_time = online_time + ?, guild_id = ?, daily_pet_respect_points = ?, club_expire_timestamp = ?, login_streak = ?, rent_space_id = ?, rent_space_endtime = ?, volume_system = ?, volume_furni = ?, volume_trax = ?, block_roominvites = ?, old_chat = ?, block_camera_follow = ?, chat_color = ?, hof_points = ?, block_alerts = ?, talent_track_citizenship_level = ?, talent_track_helpers_level = ?, ignore_bots = ?, ignore_pets = ?, nux = ?, mute_end_timestamp = ?, allow_name_change = ?, perk_trade = ?, can_trade = ?, `forums_post_count` = ?, ui_flags = ?, has_gotten_default_saved_searches = ?, max_friends = ?, max_rooms = ?, last_hc_payday = ?, hc_gifts_claimed = ? WHERE user_id = ? LIMIT 1")) {
+            try (PreparedStatement statement = connection.prepareStatement("UPDATE users_settings SET achievement_score = ?, respects_received = ?, respects_given = ?, daily_respect_points = ?, block_following = ?, block_friendrequests = ?, online_time = online_time + ?, guild_id = ?, daily_pet_respect_points = ?, club_expire_timestamp = ?, login_streak = ?, rent_space_id = ?, rent_space_endtime = ?, volume_system = ?, volume_furni = ?, volume_trax = ?, block_roominvites = ?, old_chat = ?, block_camera_follow = ?, chat_color = ?, hof_points = ?, block_alerts = ?, talent_track_citizenship_level = ?, talent_track_helpers_level = ?, ignore_bots = ?, ignore_pets = ?, nux = ?, mute_end_timestamp = ?, allow_name_change = ?, perk_trade = ?, can_trade = ?, `forums_post_count` = ?, ui_flags = ?, has_gotten_default_saved_searches = ?, max_friends = ?, max_rooms = ?, last_hc_payday = ?, hc_gifts_claimed = ?, star_gems = ? WHERE user_id = ? LIMIT 1")) {
                 statement.setInt(1, this.achievementScore);
                 statement.setInt(2, this.respectPointsReceived);
                 statement.setInt(3, this.respectPointsGiven);
@@ -368,7 +370,8 @@ public class HabboStats implements Runnable {
                 statement.setInt(36, this.maxRooms);
                 statement.setInt(37, this.lastHCPayday);
                 statement.setInt(38, this.hcGiftsClaimed);
-                statement.setInt(39, this.habboInfo.getId());
+                statement.setInt(39, this.starGems);
+                statement.setInt(40, this.habboInfo.getId());
                 
                 statement.executeUpdate();
             }
@@ -422,6 +425,14 @@ public class HabboStats implements Runnable {
 
     public boolean hasGuild(int guildId) {
         return this.guilds.contains(guildId);
+    }
+
+    public int getStarGems() {
+        return this.starGems;
+    }
+
+    public void addStarGems(int starGems) {
+        this.starGems += starGems;
     }
 
     public int getAchievementScore() {

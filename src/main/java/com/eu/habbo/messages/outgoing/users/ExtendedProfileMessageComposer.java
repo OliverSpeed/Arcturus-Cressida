@@ -71,7 +71,7 @@ public class ExtendedProfileMessageComposer extends MessageComposer {
         this.response.appendInt(Messenger.getFriendCount(this.habboInfo.getId()));
         this.response.appendBoolean(this.viewer.getHabbo().getMessenger().getFriends().containsKey(this.habboInfo.getId())); //Friend
         this.response.appendBoolean(Messenger.friendRequested(this.viewer.getHabbo().getHabboInfo().getId(), this.habboInfo.getId())); //Friend Request Send
-        this.response.appendBoolean(this.habboInfo.isOnline());
+        this.response.appendBoolean(this.habboInfo.isOnline()); // is online | true or false
 
         List<Guild> guilds = new ArrayList<>();
         if (this.habbo != null) {
@@ -109,8 +109,31 @@ public class ExtendedProfileMessageComposer extends MessageComposer {
             this.response.appendBoolean(guild.getOwnerId() == this.habboInfo.getId());
         }
 
-        this.response.appendInt(Emulator.getIntUnixTimestamp() - this.habboInfo.getLastOnline()); //Secs ago.
-        this.response.appendBoolean(true);
+        this.response.appendInt(Emulator.getIntUnixTimestamp() - this.habboInfo.getLastOnline()); // last online
+        this.response.appendBoolean(true); // profile visible
+        this.response.appendBoolean(false); // _SafeStr_1848
+        this.response.appendInt(0); // level
+        this.response.appendInt(8); // _SafeStr_1849
+
+        int starGems = 0;
+        if (this.habbo != null) {
+            starGems = this.habbo.getHabboStats().getStarGems(); // your users profile works
+        } else {
+            try (Connection connection = Emulator.getDatabase().getDataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT star_gems FROM users_settings WHERE user_id = ? LIMIT 1")) {
+                statement.setInt(1, this.habboInfo.getId());
+                try (ResultSet set = statement.executeQuery()) {
+                    if (set.next()) {
+                        starGems = set.getInt("star_gems");
+                    }
+                }
+            } catch (SQLException e) {
+                LOGGER.error("Caught SQL exception", e);
+            }
+        }
+
+        this.response.appendInt(starGems); // star gems
+        this.response.appendBoolean(true); // _SafeStr_1850
+        this.response.appendBoolean(false); // _SafeStr_1851
 
         return this.response;
     }
