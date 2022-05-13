@@ -18,6 +18,8 @@ public class Achievement {
 
     public final THashMap<Integer, AchievementLevel> levels;
 
+    public final int state;
+
 
     public Achievement(ResultSet set) throws SQLException {
         this.levels = new THashMap<>();
@@ -25,6 +27,7 @@ public class Achievement {
         this.id = set.getInt("id");
         this.name = set.getString("name");
         this.category = AchievementCategories.valueOf(set.getString("category").toLowerCase());
+        this.state = set.getInt("state");
 
         this.addLevel(new AchievementLevel(set));
     }

@@ -52,11 +52,7 @@ public class AchievementsComposer extends MessageComposer {
             this.response.appendString(""); //Sub category
             this.response.appendInt(achievement.levels.size()); //Count of total levels in this achievement
             this.response.appendInt(currentLevel == nextLevel && achievementProgress >= nextLevel.progress ? 1 : 0); //1 = Progressbar visible if the achievement is completed
-            if (achievement.category.name() == "archive") {
-                this.response.appendShort(2); //state - 0 - disabled, 1 = enabled, 2 = archive
-            } else {
-                this.response.appendShort(1); //state - 0 - disabled, 1 = enabled, 2 = archive
-            }
+            this.response.appendShort(achievement.state); //state - 0 - disabled, 1 = enabled, 2 = archive
 
         }
 

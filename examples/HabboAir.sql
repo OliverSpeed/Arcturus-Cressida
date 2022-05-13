@@ -12,6 +12,9 @@ INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.amount', '1');
 INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.currency.type', '0');
 INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.give.currency', '0');
 
+ALTER TABLE `achievements`
+ADD `state` smallint(4) NOT NULL DEFAULT '1' COMMENT '0 = disabled, 1 = enabled, 2 = archive';
+
 -- ----------------------------
 -- Table structure for hotlooks
 -- ----------------------------

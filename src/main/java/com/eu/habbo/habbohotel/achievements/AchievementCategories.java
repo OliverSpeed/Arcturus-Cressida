@@ -10,6 +10,5 @@ public enum AchievementCategories {
     pets,
     elisa_habbo_stories, // this is not visible, just exists
     room_builder,
-    archive,
     misc
 }
