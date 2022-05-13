@@ -1,39 +1,15 @@
 package com.eu.habbo.habbohotel.achievements;
 
 public enum AchievementCategories {
-
-    IDENTITY,
-
-
-    EXPLORE,
-
-
-    MUSIC,
-
-
-    SOCIAL,
-
-
-    GAMES,
-
-
-    ROOM_BUILDER,
-
-
-    PETS,
-
-
-    TOOLS,
-
-
-    OTHER,
-
-
-    TEST,
-
-
-    INVISIBLE,
-
-
-    EVENTS
+    identity,
+    tutorial,
+    trading,
+    social,
+    games,
+    explore,
+    pets,
+    elisa_habbo_stories, // this is not visible, just exists
+    room_builder,
+    archive,
+    misc
 }

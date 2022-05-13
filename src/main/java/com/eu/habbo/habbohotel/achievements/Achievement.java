@@ -24,7 +24,7 @@ public class Achievement {
 
         this.id = set.getInt("id");
         this.name = set.getString("name");
-        this.category = AchievementCategories.valueOf(set.getString("category").toUpperCase());
+        this.category = AchievementCategories.valueOf(set.getString("category").toLowerCase());
 
         this.addLevel(new AchievementLevel(set));
     }

@@ -47,7 +47,7 @@ public class HabboManager {
 
     public void loadHotLooks(){
         this.hotlooks.clear();
-        try (Connection connection = Emulator.getDatabase().getDataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotlooks WHERE gender = ?")) {
+        try (Connection connection = Emulator.getDatabase().getDataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotlooks")) {
             try (ResultSet set = statement.executeQuery()) {
                 if (set.next()) {
                     this.hotlooks.add(new WardrobeComponent.WardrobeItem(set));

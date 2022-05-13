@@ -260,8 +260,10 @@ public class AchievementManager {
                         }
                     }
                 } catch (SQLException e) {
+                    System.out.println(e.toString());
                     LOGGER.error("Caught SQL exception", e);
                 } catch (Exception e) {
+                    System.out.println(e.toString());
                     LOGGER.error("Caught exception", e);
                 }
 
@@ -282,6 +284,7 @@ public class AchievementManager {
                     }
                 }
             } catch (SQLException e) {
+                System.out.println(e.toString());
                 LOGGER.error("Caught SQL exception", e);
                 LOGGER.error("Achievement Manager -> Failed to load!");
                 return;
