@@ -53,7 +53,8 @@ public class AchievementComposer extends MessageComposer {
         this.response.appendString(""); //Empty, completly unused in client code
         this.response.appendInt(this.achievement.levels.size()); //Count of total levels in this achievement
         this.response.appendInt(0); //1 = Progressbar visible if the achievement is completed
-
+        this.response.appendShort(achievement.state); //state - 0 - disabled, 1 = enabled, 2 = archive
+        
         return this.response;
     }
 }
