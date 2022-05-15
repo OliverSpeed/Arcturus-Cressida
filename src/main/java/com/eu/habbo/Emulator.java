@@ -31,11 +31,12 @@ import java.util.regex.Pattern;
 
 public final class Emulator {
 
-    public static final int MAJOR = 4;
-    public static final int MINOR = 0;
+    public static final int MAJOR = 0;
+    public static final int MINOR = 1;
     public static final int BUILD = 0;
     public static final String PREVIEW = "Developer Preview";
-    public static final String version = "Arcturus Morningstar" + " " + MAJOR + "." + MINOR + "." + BUILD + " " + PREVIEW;
+    public static final String version = "Arcturus Cressida" + " " + PREVIEW;
+    public static final String fork_version = "Fork Based On Arcturus Morningstar";
     public static String build = "";
     public static boolean isReady = false;
     public static boolean isShuttingDown = false;
@@ -47,12 +48,11 @@ public final class Emulator {
     private static final String CLASS_PATH = (System.getProperty("java.class.path") != null ? System.getProperty("java.class.path") : "Unknown");
     private static final String logo =
             "\n" +
-                    "███╗   ███╗ ██████╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗ ███████╗████████╗ █████╗ ██████╗ \n" +
-                    "████╗ ████║██╔═══██╗██╔══██╗████╗  ██║██║████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗\n" +
-                    "██╔████╔██║██║   ██║██████╔╝██╔██╗ ██║██║██╔██╗ ██║██║  ███╗███████╗   ██║   ███████║██████╔╝\n" +
-                    "██║╚██╔╝██║██║   ██║██╔══██╗██║╚██╗██║██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██║██╔══██╗\n" +
-                    "██║ ╚═╝ ██║╚██████╔╝██║  ██║██║ ╚████║██║██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║██║  ██║\n" +
-                    "╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝\n";
+                    " ▄▄· ▄▄▄  ▄▄▄ ..▄▄ · .▄▄ · ▪  ·▄▄▄▄   ▄▄▄· \n" +
+                    "▐█ ▌▪▀▄ █·▀▄.▀·▐█ ▀. ▐█ ▀. ██ ██▪ ██ ▐█ ▀█ \n" +
+                    "██ ▄▄▐▀▀▄ ▐▀▀▪▄▄▀▀▀█▄▄▀▀▀█▄▐█·▐█· ▐█▌▄█▀▀█ \n" +
+                    "▐███▌▐█•█▌▐█▄▄▌▐█▄▪▐█▐█▄▪▐█▐█▌██. ██ ▐█ ▪▐▌\n" +
+                    "·▀▀▀ .▀  ▀ ▀▀▀  ▀▀▀▀  ▀▀▀▀ ▀▀▀▀▀▀▀▀•  ▀  ▀ \n";
 
 
 
@@ -84,7 +84,7 @@ public final class Emulator {
 
     public static void promptEnterKey(){
         System.out.println("\n");
-        System.out.println("This is a developer preview build. Your plugins for Arcturus Morningstar 3.x will NOT work on this build.");
+        System.out.println("This is a developer preview build. Your plugins for Arcturus Morningstar will NOT work on this build.");
         System.out.println("Press \"ENTER\" if you agree to the terms stated above...");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
