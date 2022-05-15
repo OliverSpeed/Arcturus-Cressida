@@ -1,6 +1,7 @@
 package com.eu.habbo.messages.incoming.users;
 
 import com.eu.habbo.Emulator;
+import com.eu.habbo.habbohotel.achievements.AchievementManager;
 import com.eu.habbo.habbohotel.users.Habbo;
 import com.eu.habbo.messages.incoming.MessageHandler;
 
@@ -36,7 +37,8 @@ public class GiveStarGemToUserMessageEvent extends MessageHandler {
         }
 
         targetHabbo.getHabboStats().addStarGems(count);
-        targetHabbo.alert(Emulator.getTexts().getValue("stargem.received.from").replace("%username%", this.client.getHabbo().getHabboInfo().getUsername()));
-
+        targetHabbo.whisper(Emulator.getTexts().getValue("stargem.received.from").replace("%username%", this.client.getHabbo().getHabboInfo().getUsername()));
+        AchievementManager.progressAchievement(this.client.getHabbo(), Emulator.getGameEnvironment().getAchievementManager().getAchievement("FriendsMaker"));
+        AchievementManager.progressAchievement(targetHabbo, Emulator.getGameEnvironment().getAchievementManager().getAchievement("FriendsMaker_SGCollect_"));
     }
 }

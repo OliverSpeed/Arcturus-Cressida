@@ -1,6 +1,7 @@
 package com.eu.habbo.messages.incoming.users;
 
 import com.eu.habbo.Emulator;
+import com.eu.habbo.habbohotel.achievements.AchievementManager;
 import com.eu.habbo.habbohotel.rooms.Room;
 import com.eu.habbo.habbohotel.users.HabboInfo;
 import com.eu.habbo.habbohotel.users.HabboManager;
@@ -36,6 +37,7 @@ public class ChangeUserNameEvent extends MessageHandler {
             this.client.sendResponse(new ChangeUserNameResultMessageEvent(this.client.getHabbo()));
             this.client.sendResponse(new UserNameChangedMessageComposer(this.client.getHabbo()).compose());
             this.client.sendResponse(new UserObjectComposer(this.client.getHabbo()));
+            AchievementManager.progressAchievement(this.client.getHabbo(), Emulator.getGameEnvironment().getAchievementManager().getAchievement("Name"));
             return;
         }
 
@@ -86,9 +88,11 @@ public class ChangeUserNameEvent extends MessageHandler {
                 } catch (SQLException e) {
                     LOGGER.error("Caught SQL exception", e);
                 }
+
             } else {
                 this.client.sendResponse(new CheckUserNameResultMessageComposer(CheckUserNameResultMessageComposer.TAKEN_WITH_SUGGESTIONS, name, new ArrayList<>()));
             }
         }
+        AchievementManager.progressAchievement(this.client.getHabbo(), Emulator.getGameEnvironment().getAchievementManager().getAchievement("Name"));
     }
 }
