@@ -573,6 +573,9 @@ public class Pet implements ISerialize, Runnable {
             this.roomUnit.setStatus(RoomUnitStatus.GESTURE, "exp");
             this.gestureTickTimeout = Emulator.getIntUnixTimestamp();
             AchievementManager.progressAchievement(Emulator.getGameEnvironment().getHabboManager().getHabbo(this.userId), Emulator.getGameEnvironment().getAchievementManager().getAchievement("PetLevelUp"));
+            if (this.getPetData().getType() == 31) {
+                AchievementManager.progressAchievement(Emulator.getGameEnvironment().getHabboManager().getHabbo(this.getUserId()), Emulator.getGameEnvironment().getAchievementManager().getAchievement("HaloompaLevelUp"));
+            }
             this.room.sendComposer(new PetLevelUpdatedComposer(this).compose());
         }
 
@@ -619,6 +622,9 @@ public class Pet implements ISerialize, Runnable {
             habbo.getHabboInfo().getCurrentRoom().sendComposer(new PetRespectNotificationComposer(this).compose());
 
             AchievementManager.progressAchievement(habbo, Emulator.getGameEnvironment().getAchievementManager().getAchievement("PetRespectGiver"));
+            if (this.getPetData().getType() == 31) {
+                AchievementManager.progressAchievement(Emulator.getGameEnvironment().getHabboManager().getHabbo(this.getUserId()), Emulator.getGameEnvironment().getAchievementManager().getAchievement("HaloompaRespectGiver"));
+            }
         }
 
         AchievementManager.progressAchievement(Emulator.getGameEnvironment().getHabboManager().getHabbo(this.userId), Emulator.getGameEnvironment().getAchievementManager().getAchievement("PetRespectReceiver"));
