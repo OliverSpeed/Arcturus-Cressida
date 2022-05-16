@@ -1,9 +1,12 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+-- Users Settings
 ALTER TABLE `users_settings`
   ADD `star_gems` INT(11) NOT NULL DEFAULT '0' AFTER `guild_id`;
 
+
+-- Emulator stuff
 INSERT INTO `emulator_texts` (`key`, `value`) VALUES ('stargem.invalid.target', 'Your target was invalid! Sorry :(');
 INSERT INTO `emulator_texts` (`key`, `value`) VALUES ('stargem.received.from', 'You received a gem from %username%!');
 INSERT INTO `emulator_texts` (`key`, `value`) VALUES ('stargem.not.enough', 'Sorry, you don\'t have enough Duckets to give Stargems!');
@@ -12,12 +15,13 @@ INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.amount', '1');
 INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.currency.type', '0');
 INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.give.currency', '0');
 
+
+-- Achievements + basic cleanup
 ALTER TABLE `achievements`
 ADD `state` smallint(4) NOT NULL DEFAULT '1' COMMENT '0 = disabled, 1 = enabled, 2 = archive';
 
--- ----------------------------
--- Table structure for hotlooks
--- ----------------------------
+
+-- Hot looks
 DROP TABLE IF EXISTS `hotlooks`;
 CREATE TABLE `hotlooks`  (
   `look` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'The look users can pick.',
@@ -26,9 +30,6 @@ CREATE TABLE `hotlooks`  (
   UNIQUE INDEX `Primary key`(`look`, `gender`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
--- ----------------------------
--- Records of hotlooks
--- ----------------------------
 INSERT INTO `hotlooks` VALUES ('hd-180-8.ch-225-64.lg-285-1408.sh-300-64.ha-1023-64', 'M');
 INSERT INTO `hotlooks` VALUES ('hd-185-30.ch-225-64.lg-285-1408.sh-300-64.ha-1023-1408.wa-2007', 'M');
 INSERT INTO `hotlooks` VALUES ('hd-195-14.ch-210-81.lg-270-71.ha-1003-1408', 'M');

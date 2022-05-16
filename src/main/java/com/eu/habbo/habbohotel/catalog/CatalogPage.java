@@ -26,7 +26,6 @@ public abstract class CatalogPage implements Comparable<CatalogPage>, ISerialize
     protected int rank;
     protected String caption;
     protected String pageName;
-    protected int iconColor;
     protected int iconImage;
     protected int orderNum;
     protected boolean visible;
@@ -53,7 +52,6 @@ public abstract class CatalogPage implements Comparable<CatalogPage>, ISerialize
         this.rank = set.getInt("min_rank");
         this.caption = set.getString("caption");
         this.pageName = set.getString("caption_save");
-        this.iconColor = set.getInt("icon_color");
         this.iconImage = set.getInt("icon_image");
         this.orderNum = set.getInt("order_num");
         this.visible = set.getBoolean("visible");
@@ -102,10 +100,6 @@ public abstract class CatalogPage implements Comparable<CatalogPage>, ISerialize
 
     public String getPageName() {
         return this.pageName;
-    }
-
-    public int getIconColor() {
-        return this.iconColor;
     }
 
     public int getIconImage() {

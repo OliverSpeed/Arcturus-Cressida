@@ -15,7 +15,6 @@ public class CatalogRootLayout extends CatalogPage {
         this.rank = 0;
         this.caption = "root";
         this.pageName = "root";
-        this.iconColor = 0;
         this.iconImage = 0;
         this.orderNum = -10;
         this.visible = true;
@@ -30,7 +29,6 @@ public class CatalogRootLayout extends CatalogPage {
         this.rank = 0;
         this.caption = "root";
         this.pageName = "root";
-        this.iconColor = 0;
         this.iconImage = 0;
         this.orderNum = -10;
         this.visible = true;

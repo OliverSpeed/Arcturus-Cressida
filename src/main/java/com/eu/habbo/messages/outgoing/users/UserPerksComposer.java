@@ -8,6 +8,11 @@ import com.eu.habbo.messages.outgoing.MessageComposer;
 import com.eu.habbo.messages.outgoing.Outgoing;
 
 public class UserPerksComposer extends MessageComposer {
+    /* Basic docs
+        String : perk name
+        String : external flash texts variable
+        Boolean : True If user has it / Has completed it
+     */
     private final Habbo habbo;
 
     public UserPerksComposer(Habbo habbo) {
