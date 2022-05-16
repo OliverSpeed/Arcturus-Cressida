@@ -41,7 +41,7 @@ public class UserPerksComposer extends MessageComposer {
 
         this.response.appendString("CITIZEN");
         this.response.appendString("");
-        this.response.appendBoolean(true);
+        this.response.appendBoolean(false);
 
         this.response.appendString("TRADE");
         this.response.appendString("requirement.unfulfilled.no_trade_lock");
@@ -63,7 +63,7 @@ public class UserPerksComposer extends MessageComposer {
         this.response.appendString("");
         this.response.appendBoolean(Emulator.getGameEnvironment().getPermissionsManager().hasPermission(this.habbo, "acc_camera"));
 
-        this.response.appendString("NAVIGATOR_PHASE_TWO_2014");
+        this.response.appendString("NAVIGATOR_PHASE_TWO_2014"); // not in use
         this.response.appendString("");
         this.response.appendBoolean(true);
 
@@ -75,7 +75,7 @@ public class UserPerksComposer extends MessageComposer {
         this.response.appendString("");
         this.response.appendBoolean(true);
 
-        this.response.appendString("HABBO_CLUB_OFFER_BETA");
+        this.response.appendString("HABBO_CLUB_OFFER_BETA"); // not in use
         this.response.appendString("");
         this.response.appendBoolean(true);
 

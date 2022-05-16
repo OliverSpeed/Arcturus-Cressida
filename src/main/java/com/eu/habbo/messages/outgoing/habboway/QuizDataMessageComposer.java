@@ -5,8 +5,8 @@ import com.eu.habbo.messages.outgoing.MessageComposer;
 import com.eu.habbo.messages.outgoing.Outgoing;
 
 public class QuizDataMessageComposer extends MessageComposer {
-    public final String name;
-    public final int[] items;
+    public final String name; // Habboway1
+    public final int[] items; // QuestionIDs
 
     public QuizDataMessageComposer(String name, int[] items) {
         this.name = name;

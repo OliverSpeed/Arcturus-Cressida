@@ -44,6 +44,7 @@ import com.eu.habbo.messages.incoming.polls.AnswerPollEvent;
 import com.eu.habbo.messages.incoming.polls.PollRejectEvent;
 import com.eu.habbo.messages.incoming.polls.PollStartEvent;
 import com.eu.habbo.messages.incoming.rooms.*;
+import com.eu.habbo.messages.incoming.help.GetQuizQuestionsEvent;
 import com.eu.habbo.messages.incoming.rooms.bots.RemoveBotFromFlatEvent;
 import com.eu.habbo.messages.incoming.rooms.bots.PlaceBotEvent;
 import com.eu.habbo.messages.incoming.rooms.bots.CommandBotEvent;
@@ -118,6 +119,7 @@ public class PacketManager {
         this.registerCrafting();
         this.registerCamera();
         this.registerGameCenter();
+        this.registerHelp();
     }
 
     public PacketNames getNames() {
@@ -226,6 +228,10 @@ public class PacketManager {
     private void registerAmbassadors() throws Exception {
         this.registerHandler(Incoming.ambassadorAlertMessageEvent, AmbassadorAlertEvent.class);
         this.registerHandler(Incoming.followFriendMessageEvent, FollowFriendEvent.class);
+    }
+
+    private void registerHelp() throws Exception {
+        this.registerHandler(Incoming.getQuizQuestionsEvent, GetQuizQuestionsEvent.class);
     }
 
     private void registerCatalog() throws Exception {
