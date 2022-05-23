@@ -15,6 +15,9 @@ INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.amount', '1');
 INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.currency.type', '0');
 INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('stargem.give.currency', '0');
 
+-- Don't make this less than 250 If you don't understand what it is
+INSERT INTO `emulator_settings` (`key`, `value`) VALUES ('move.avatar.ratelimit', '250');
+
 
 -- Achievements + basic cleanup
 ALTER TABLE `achievements`

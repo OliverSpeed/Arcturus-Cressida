@@ -1,6 +1,7 @@
 package com.eu.habbo.messages.incoming.rooms.items;
 
 import com.eu.habbo.Emulator;
+import com.eu.habbo.habbohotel.achievements.AchievementManager;
 import com.eu.habbo.habbohotel.items.interactions.InteractionDice;
 import com.eu.habbo.habbohotel.items.interactions.InteractionWired;
 import com.eu.habbo.habbohotel.items.interactions.pets.InteractionMonsterPlantSeed;
@@ -131,6 +132,8 @@ public class UseFurnitureEvent extends MessageHandler {
             if (item instanceof InteractionWired) {
                 this.client.getHabbo().getRoomUnit().setGoalLocation(this.client.getHabbo().getRoomUnit().getCurrentLocation());
             }
+
+            AchievementManager.progressAchievement(this.client.getHabbo(), Emulator.getGameEnvironment().getAchievementManager().getAchievement("HabboExplorer"));
         } catch (Exception e) {
             LOGGER.error("Caught exception", e);
         }

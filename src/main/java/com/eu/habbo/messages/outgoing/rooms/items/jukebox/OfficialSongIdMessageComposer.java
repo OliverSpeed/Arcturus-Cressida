@@ -15,8 +15,8 @@ public class OfficialSongIdMessageComposer extends MessageComposer {
     @Override
     protected ServerMessage composeInternal() {
         this.response.init(Outgoing.officialSongIdMessageComposer);
-        this.response.appendString(this.track.getCode());
-        this.response.appendInt(this.track.getId());
+        this.response.appendInt(this.track.getId()); // _songId
+        this.response.appendString(this.track.getCode()); // _officialSongId
         return this.response;
     }
 }

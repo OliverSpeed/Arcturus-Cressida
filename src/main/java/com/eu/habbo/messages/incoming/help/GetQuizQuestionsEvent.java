@@ -9,12 +9,9 @@ import java.util.Collections;
 public class GetQuizQuestionsEvent extends MessageHandler {
     @Override
     public void handle() throws Exception {
-        /* what the fuck is this shit again i hate networking
-
-            new QuizDataMessageEvent(this.onQuizData)
-            new QuizResultsMessageEvent(this.onQuizResults)
-         */
+    /* what the fuck is this shit again i hate networking
         this.client.sendResponse(new QuizDataMessageComposer(this.packet.readString(), new int[]{1,2,3,4,5}));
         this.client.sendResponse(new QuizResultsMessageComposer(this.packet.readString(), Collections.singletonList(this.packet.readInt())));
+    */
     }
 }

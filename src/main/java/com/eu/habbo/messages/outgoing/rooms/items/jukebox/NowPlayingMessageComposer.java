@@ -21,11 +21,11 @@ public class NowPlayingMessageComposer extends MessageComposer {
         this.response.init(Outgoing.nowPlayingMessageComposer);
 
         if (this.track != null) {
-            this.response.appendInt(this.track.getId());
-            this.response.appendInt(this.playListId);
-            this.response.appendInt(this.track.getId());
-            this.response.appendInt(this.track.getLength());
-            this.response.appendInt(this.msPlayed);
+            this.response.appendInt(this.track.getId()); // _currentSongId
+            this.response.appendInt(this.playListId); // _currentPosition
+            this.response.appendInt(this.track.getId()); // _nextSongId
+            this.response.appendInt(this.track.getLength()); // _nextPosition
+            this.response.appendInt(this.msPlayed); // _syncCount
         } else {
             this.response.appendInt(-1);
             this.response.appendInt(-1);

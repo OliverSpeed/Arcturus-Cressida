@@ -1,6 +1,7 @@
 package com.eu.habbo.messages.incoming.rooms.users;
 
 import com.eu.habbo.Emulator;
+import com.eu.habbo.habbohotel.achievements.AchievementManager;
 import com.eu.habbo.habbohotel.pets.PetTasks;
 import com.eu.habbo.habbohotel.rooms.Room;
 import com.eu.habbo.habbohotel.rooms.RoomTile;
@@ -18,9 +19,10 @@ import org.slf4j.LoggerFactory;
 public class MoveAvatarEvent extends MessageHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(MoveAvatarEvent.class);
 
+    // making this less than 250 might cause memory issues.
     @Override
     public int getRatelimit() {
-        return 250;
+        return Emulator.getConfig().getInt("move.avatar.ratelimit", 250);
     }
 
     @Override
@@ -157,6 +159,7 @@ public class MoveAvatarEvent extends MessageHandler {
                         }
                     }
                 }
+                AchievementManager.progressAchievement(this.client.getHabbo(), Emulator.getGameEnvironment().getAchievementManager().getAchievement("Tutorial1"));
             } catch (InterruptedException e) {
                 LOGGER.error("Caught exception", e);
                 Thread.currentThread().interrupt();

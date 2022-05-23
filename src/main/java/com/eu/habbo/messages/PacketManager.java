@@ -12,7 +12,9 @@ import com.eu.habbo.messages.incoming.camera.*;
 import com.eu.habbo.messages.incoming.campaign.OpenCampaignCalendarDoorAsStaffEvent;
 import com.eu.habbo.messages.incoming.campaign.OpenCampaignCalendarDoorEvent;
 import com.eu.habbo.messages.incoming.catalog.*;
+import com.eu.habbo.messages.incoming.help.postQuizAnswersEvent;
 import com.eu.habbo.messages.incoming.hotlooks.*;
+import com.eu.habbo.messages.incoming.quests.GetQuestsMessageEvent;
 import com.eu.habbo.messages.incoming.catalog.marketplace.*;
 import com.eu.habbo.messages.incoming.catalog.recycler.PresentOpenEvent;
 import com.eu.habbo.messages.incoming.catalog.recycler.RecycleItemsEvent;
@@ -120,6 +122,7 @@ public class PacketManager {
         this.registerCamera();
         this.registerGameCenter();
         this.registerHelp();
+        this.registerQuests();
     }
 
     public PacketNames getNames() {
@@ -232,6 +235,11 @@ public class PacketManager {
 
     private void registerHelp() throws Exception {
         this.registerHandler(Incoming.getQuizQuestionsEvent, GetQuizQuestionsEvent.class);
+        this.registerHandler(Incoming.postQuizAnswersEvent, postQuizAnswersEvent.class);
+    }
+
+    private void registerQuests() throws Exception {
+        this.registerHandler(Incoming.getQuestsMessageEvent, GetQuestsMessageEvent.class);
     }
 
     private void registerCatalog() throws Exception {
